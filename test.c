@@ -15,9 +15,9 @@ int main(int argc,char *argv[])
             printf("this is a child process \n");
 		
 	
-	    while(count <10)
+	    while(count1 <10)
 	    {
-		prinf("child process: %d\n", count1);
+		printf("child process: %d\n", count1);
 		//lecture 26->4:09
 		sleep(1);
 		count1++;
@@ -28,7 +28,7 @@ int main(int argc,char *argv[])
 	    printf("this is the parent process \n");
 	    while(count2<20)
 	    {
-		prinf("parent process: %d\n", count2);
+		printf("parent process: %d\n", count2);
 		//lecture 26->5:25
 		sleep(1);
 		count2++;
