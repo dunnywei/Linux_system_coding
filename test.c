@@ -1,41 +1,30 @@
 #include<stdio.h>
 #include<unistd.h>
+
+
+int add_number(int a,int b)
+{
+	return (a+b);
+}
 int main(int argc,char *argv[])
 {
-	//lecture 26
-	int chipdpid;
-	int count1=0; int count2=0;
-	printf("before it forks \n");
+	//lecture 13
+	//First way
+	/*
+	int result=add_number(a+b);
+	printf("result is %d \n",result);
+	*/
+	//second way
+	int (*my_func_ptr)(int,int);
+	my_func_ptr=&add_number;
+	int result=my_func_ptr(3,4);
+	printf("result is %d \n",result);
 	
-	sleep(5);
-	chipdpid=fork();
-	
-	if(chipdpid==0)
-	{
-            printf("this is a child process \n");
-		
-	
-	    while(count1 <10)
-	    {
-		printf("child process: %d\n", count1);
-		//lecture 26->4:09
-		sleep(1);
-		count1++;
-	    }
-	}
-	else
-	{
-	    printf("this is the parent process \n");
-	    while(count2<20)
-	    {
-		printf("parent process: %d\n", count2);
-		//lecture 26->5:25
-		sleep(1);
-		count2++;
-	    }
-	}
 }
-//Lectuer 26 starts
-//->https://www.youtube.com/watch?v=tS-9zg3qfMY&list=PLypxmOPCOkHXbJhUgjRaV2pD9MJkIArhg&index=26
-//@8:35, it will show how many process is running
-//Lecture 26 ends
+//Lectuer 13 starts
+//https://www.youtube.com/watch?v=HK1ujzlrqqw&index=13&list=PLypxmOPCOkHXbJhUgjRaV2pD9MJkIArhg
+/*
+ *->function pointer points to a particular slots in the memory (0:20)
+ *
+*
+*/
