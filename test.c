@@ -8,23 +8,27 @@ int add_number(int a,int b)
 }
 int main(int argc,char *argv[])
 {
-	//lecture 13
-	//First way
-	/*
-	int result=add_number(a+b);
-	printf("result is %d \n",result);
-	*/
-	//second way
-	int (*my_func_ptr)(int,int);
-	my_func_ptr=&add_number;
-	int result=my_func_ptr(3,4);
-	printf("result is %d \n",result);
+	//lecture 15
+	int i;
+	
+	printf("argc is %d\n",argc);
+	
+	for(i=;i<argc;i++)
+	{
+		printf("argv[%d] is %s",i,argv[i]);
+	}
+	
+	
+	return 0;
+	
 	
 }
-//Lectuer 13 starts
-//https://www.youtube.com/watch?v=HK1ujzlrqqw&index=13&list=PLypxmOPCOkHXbJhUgjRaV2pD9MJkIArhg
+//Lectuer 15 starts
+//C Programming in Linux Tutorial #015 - argc argv 
 /*
- *->function pointer points to a particular slots in the memory (0:20)
- *
-*
+ *->argc is the # of arguments 
+ *->argv is the content
+*->execute this program like ./test one two three
+*->                          ./test one two three "hello world" hey
+*->system treat quotes "hello world" as one string (7:47)
 */
