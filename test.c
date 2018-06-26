@@ -13,9 +13,9 @@ int main(int argc,char *argv[])
 	
 	printf("argc is %d\n",argc);
 	
-	for(i=;i<argc;i++)
+	for(i=0;i<argc;i++)
 	{
-		printf("argv[%d] is %s",i,argv[i]);
+		printf("argv[%d] is %s\n",i,argv[i]);
 	}
 	
 	
