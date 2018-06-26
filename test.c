@@ -1,34 +1,44 @@
 #include<stdio.h>
+#include<string.h>
 #include<unistd.h>
 
 
-int add_number(int a,int b)
-{
-	return (a+b);
-}
+
 int main(int argc,char *argv[])
 {
-	//lecture 15
-	int i;
+	//lecture 17
+	char str[24];
+	char str2[24];
+	int i=4;
+	int n;
+	//sprintf(str,"hello world!");
 	
-	printf("argc is %d\n",argc);
+	sprintf(str,"i is %d",i);//3:10
 	
-	for(i=0;i<argc;i++)
-	{
-		printf("argv[%d] is %s\n",i,argv[i]);
-	}
 	
+	printf("%s\n",str);
+	
+	n=strlen(str);
+	
+	printf("length of str is %d\n",n);
+	
+	
+	strcpy(str2,str);
+	
+	printf("the content of str2 is %s\n",str2);
+	
+	memset(str,0,24);//usefull for embedded linux
+	memset(str,'a',10);
+	//11th will be null terminator for string (10:46)
+	//type "man string.h" in CLI (11:05)
+	printf(">%s<\n",str);
 	
 	return 0;
 	
 	
 }
-//Lectuer 15 starts
-//C Programming in Linux Tutorial #015 - argc argv 
+//Lectuer 17 starts
+//C Programming in Linux Tutorial #017 string function and operation  
 /*
- *->argc is the # of arguments 
- *->argv is the content
-*->execute this program like ./test one two three
-*->                          ./test one two three "hello world" hey
-*->system treat quotes "hello world" as one string (7:47)
+ 
 */
