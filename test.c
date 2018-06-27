@@ -28,7 +28,7 @@ int main(int argc,char *argv[])
 	printf("the content of str2 is %s\n",str2);
 	
 	memset(str,0,24);//usefull for embedded linux
-	memset(str,'a',10);
+	memset(str,'a',3);
 	//11th will be null terminator for string (10:46)
 	//type "man string.h" in CLI (11:05)
 	printf(">%s<\n",str);
