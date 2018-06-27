@@ -6,39 +6,37 @@
 
 int main(int argc,char *argv[])
 {
-	//lecture 17
-	char str[24];
-	char str2[24];
-	int i=4;
-	int n;
-	//sprintf(str,"hello world!");
+	//lecture 18
+	char str[24]="first string";
+	char *ptr="second string";
+	//They are not the same
 	
-	sprintf(str,"i is %d",i);//3:10
-	
-	
-	printf("%s\n",str);
-	
-	n=strlen(str);
-	
-	printf("length of str is %d\n",n);
+	printf("str is %s\n",str);
+	printf("ptr is %s\n",ptr);
 	
 	
-	strcpy(str2,str);
+	ptr++;
+	printf("second step, ptr is %s\n",ptr);
+	//(7:38)after the incremental, the ptr points to a pointer which points to
+	//the address of "econd string"
 	
-	printf("the content of str2 is %s\n",str2);
+	/*
+	str++;
+	printf("str is %s\n",str);
+	*/
+	//should generate compile error (8:12)
+
 	
-	memset(str,0,24);//usefull for embedded linux
-	memset(str,'a',3);
-	//11th will be null terminator for string (10:46)
-	//type "man string.h" in CLI (11:05)
-	printf(">%s<\n",str);
+	
 	
 	return 0;
 	
 	
 }
-//Lectuer 17 starts
-//C Programming in Linux Tutorial #017 string function and operation  
+//C Programming in Linux Tutorial #018 - Char Pointer vs Array Char
 /*
- 
+Elabroation in memory (3:13)
+str contains the first address of "first string"
+
+ptr contains a pointer which will point to the first address of "second string"
 */
