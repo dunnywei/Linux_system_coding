@@ -4,6 +4,20 @@
 #include <stdlib.h>
 #include <pthread.h>
 
+void *myfunc(void *myvar)
+{
+   char* message= (char *)myvar;
+   int i;
+   for(i=0;i<10;k++)
+   {
+      printf("the value of is is %d \n",i);
+      sleep(1);
+   }
+   printf("At my funcs %s\n",myvar);
+   
+   retun;
+}
+
 int main(int argc,char* argv[])
 {
    //lecture_29 (2:01)
@@ -11,14 +25,16 @@ int main(int argc,char* argv[])
    char *msg1="first thread";
    char *msg2="second thread";
    int ret1,ret2;
-   ret1=pthread_create(thread1,NULL, myfunc,(void *)msg1);
-   ret2=pthread_create(thread1,NULL, myfunc,(void *)msg2);
+   ret1=pthread_create(&thread1,NULL, myfunc,(void *)msg1);
+   ret2=pthread_create(&thread1,NULL, myfunc,(void *)msg2);
+   
+   printf("Main function after pthread creates\n");
    //4:46
    printf("First  thread ret1=%d\n",ret1);
    printf("Second thread ret2=%d\n",ret2);
    
    
 
-   pthread_join(thread1,NULL);
+   pthread_join(thread1,NULL);//thread 1 and 2 will join the main thread in one process
    pthread_join(thread2,NULL);
 }
