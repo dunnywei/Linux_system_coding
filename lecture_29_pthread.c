@@ -8,14 +8,14 @@ void *myfunc(void *myvar)
 {
    char* message= (char *)myvar;
    int i;
-   for(i=0;i<10;k++)
+   for(i=0;i<10;i++)
    {
       printf("the value of is is %d \n",i);
       sleep(1);
    }
    printf("At my funcs %s\n",myvar);
    
-   retun;
+   return;
 }
 
 int main(int argc,char* argv[])
@@ -38,3 +38,5 @@ int main(int argc,char* argv[])
    pthread_join(thread1,NULL);//thread 1 and 2 will join the main thread in one process
    pthread_join(thread2,NULL);
 }
+
+//https://www.onlinegdb.com/online_c_compiler
