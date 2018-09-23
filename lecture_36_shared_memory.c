@@ -20,9 +20,10 @@ int main(int argc, char *argv[])
     printf("Hello World");
     
     shmid=shmget(key,SHSIZE,IPC_CREATE | 0666);
+    //0666 is the permission (3:07)
     if(shmid<0)
     {
-        perror("shmget_fail");
+        perror("shmget_fail_server");
         exit(1);
     }
     shmid=shmat(shmid, NULL,0);
@@ -31,8 +32,8 @@ int main(int argc, char *argv[])
     {
         perror("shmat_fail");
         exit(1);
-    }//(6:01)
-    
+    }
+    //(5:50)
     memcpy(shm,"hello world",11);
     /*
     "hello world" has 11 characters
