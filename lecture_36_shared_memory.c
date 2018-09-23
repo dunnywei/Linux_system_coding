@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
     int shmid;
     key_t key;
     char *shm;
+    char *s;
      
     key=9976;
     printf("Hello World");
@@ -28,12 +29,26 @@ int main(int argc, char *argv[])
 
     if(shm==(char*)-1)
     {
-        perror("shmget_fail");
+        perror("shmat_fail");
         exit(1);
     }//(6:01)
     
+    memcpy(shm,"hello world",11);
+    /*
+    "hello world" has 11 characters
+    */
+    s=shm;
+    s+=11;
     
-
+    *s=0;
+    while(*shm!='*')
+    {    
+        sleep(1);
+    }
+    //(7:43)
+    return 0;
+     
+    
 }
 
 //(1:00)
