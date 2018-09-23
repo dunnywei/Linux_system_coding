@@ -1,5 +1,5 @@
 //https://www.youtube.com/watch?v=SMeDw2GDMsE&index=36&list=PLypxmOPCOkHXbJhUgjRaV2pD9MJkIArhg
-
+/*********************for server.c**********************************************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -51,4 +51,50 @@ int main(int argc, char *argv[])
     
 }
 
-//(1:00)
+/*********************for client.c**********************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+
+#define SHSIZE 100
+
+int main(int argc, char *argv[])
+{
+    int shmid;
+    key_t key;
+    char *shm;
+    char *s;
+     
+    key=9976;
+    printf("Hello World_client");
+    
+    shmid=shmget(key,SHSIZE, 0666);
+    if(shmid<0)
+    {
+        perror("shmget_fail_client");
+        exit(1);
+    }
+    shmid=shmat(shmid, NULL,0);
+
+    if(shm==(char*)-1)
+    {
+        perror("shmat_fail_client");
+        exit(1);
+    }
+    
+    for(s=shm; *s!=0;s++)
+        printf("%s",*s);
+    pringf("\n");
+    
+    
+    *shm='*'; //(13:07)
+    
+    return 0;
+     
+    
+}
+
