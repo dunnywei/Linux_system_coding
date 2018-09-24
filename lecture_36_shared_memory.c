@@ -74,6 +74,7 @@ int main(int argc, char *argv[])
     printf("Hello World_client");
     
     shmid=shmget(key,SHSIZE, 0666);
+    //write sth to the memory(11:05)
     if(shmid<0)
     {
         perror("shmget_fail_client");
@@ -98,4 +99,4 @@ int main(int argc, char *argv[])
      
     
 }
-
+//There is some synchronization here (11:55)
